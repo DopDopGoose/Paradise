@@ -33,7 +33,37 @@
 		/obj/item/tank,
 		/obj/item/circuitboard,
 		/obj/item/stack/tile/light,
-		/obj/item/stack/ore/bluespace_crystal
+		/obj/item/stack/ore/bluespace_crystal,
+		/obj/item/borg/upgrade/reset,
+		/obj/item/borg/upgrade/rename,
+		/obj/item/borg/upgrade/restart,
+		/obj/item/borg/upgrade/vtec,
+		/obj/item/borg/upgrade/magboots,
+		/obj/item/borg/upgrade/disablercooler,
+		/obj/item/borg/upgrade/thrusters,
+		/obj/item/borg/upgrade/ddrill,
+		/obj/item/borg/upgrade/soh,
+		/obj/item/borg/upgrade/gps,
+		/obj/item/borg/upgrade/abductor_engi,
+		/obj/item/borg/upgrade/abductor_medi,
+		/obj/item/borg/upgrade/syndicate,
+		/obj/item/borg/upgrade/lavaproof,
+		/obj/item/borg/upgrade/selfrepair,
+		/obj/item/borg/upgrade/storageincreaser,
+		/obj/item/borg/upgrade/hypospray,
+		/obj/item/borg/upgrade/hypospray_pierce,
+		/obj/item/borg/upgrade/syndie_rcd,
+		/obj/item/borg/upgrade/bs_beaker,
+		/obj/item/stock_parts/cell,
+		///mob/living/silicon/robot
+		//issilicon
+		//robots on 'q' have their own proc for drop, in keybindinds/robot.dm
+		//There is a power cell already installed
+
+
+		// 	if(!locked)
+		// to_chat(usr, "<span class='warning'>You cannot lock your cover yourself. Find a robotocist.</span>")
+		// return
 	)
 
 	//Item currently being held.
@@ -50,7 +80,12 @@
 					/obj/item/robot_parts/l_leg,
 					/obj/item/robot_parts/r_leg,
 					/obj/item/robot_parts/chest,
-					/obj/item/stack/sheet/mineral/plasma) //for repair plasmamans
+					/obj/item/stack/sheet/mineral/plasma, //for repair plasmamans
+					/obj/item/reagent_containers/food,
+					/obj/item/reagent_containers/glass/beaker,
+					/obj/item/storage/bag/chemistry,
+					/obj/item/reagent_containers/glass/bucket,
+	)
 
 /obj/item/gripper/medical/attack_self(mob/user)
 	return

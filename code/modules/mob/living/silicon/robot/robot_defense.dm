@@ -37,7 +37,19 @@
 /mob/living/silicon/robot/attack_hand(mob/living/carbon/human/user)
 	add_fingerprint(user)
 
-	if(opened && !wiresexposed && !issilicon(user))
+	//Проверяем что инженерный на нас нажал инженерный юнит
+	var/is_engineering_robot = FALSE
+	if (isrobot(user))
+		var/mob/living/silicon/robot/robot_user = user
+		if (robot_user.module && istype(robot_user.module, /obj/item/robot_module/engineering))
+			is_engineering_robot = TRUE
+
+	//При разборе юнита юнитом, происходит вот этот краш
+	// /datum/cameranet/proc/majorChunkChange(atom/c, var/choice)
+	// if(QDELETED(c) && choice == 1)
+	// 	CRASH("Tried to add a qdeleting camera to the net")
+
+	if(opened && !wiresexposed && (is_engineering_robot || !issilicon(user))) //Разрешаем инженерному юниту вынимать батарейку
 		if(cell)
 			cell.update_icon()
 			cell.add_fingerprint(user)
